@@ -1,0 +1,177 @@
+@import './Base.scss';
+@import './Footer.scss';
+@import './Variables';
+
+@media (prefers-color-scheme: light) {
+  .qc-header {
+    @include Footer(#ffffff, #222222, #8af1ff, #156974);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .qc-header {
+    @include Footer(#222222, #ffffff, #8af1ff, #156974);
+  }
+}
+
+.my-icon {
+  width: 4rem;  
+  height: 4rem;
+}
+
+
+.qc-header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cascadia Code', monospace;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+
+  &.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 97%;
+    z-index: 50;
+  }
+
+  &.relative-header {
+    position: relative;
+  }
+}
+  .qc-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .qc-logo-img {
+      height: 48px;
+      width: 48px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .qc-logo-text {
+      h1 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+
+      span {
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .qc-nav {
+    ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        font-weight: 600;
+        text-decoration: none;
+        color: inherit;
+        font-family: 'Cascadia Code', monospace;
+        position: relative;
+        font-size: 20px;
+
+        &::after {
+          content: '';
+          height: 2px;
+          width: 0;
+          background: currentColor;
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        &.is-active::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+/* qc-logo is now a Link/anchor — keep it looking like plain text, not a link */
+a.qc-logo {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Mobile nav toggle (hamburger) — hidden on desktop */
+.qc-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 60;
+
+  span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  &.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  &.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+  &.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 720px) {
+  .qc-nav-toggle {
+    display: flex;
+  }
+
+  .qc-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: min(80vw, 320px);
+    background: inherit;
+    background-color: #ffffff;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.12);
+    transition: right 0.3s ease;
+    z-index: 55;
+    padding: 6rem 2rem 2rem;
+
+    &.is-open {
+      right: 0;
+    }
+
+    ul {
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+  }
+}
+

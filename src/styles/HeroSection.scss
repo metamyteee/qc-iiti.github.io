@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --ibm-blue: #0f62fe;
+  --ibm-blue-hover: #0043ce;
+  --ibm-black: #161616;
+  --ibm-gray-70: #525252;
+  --ibm-gray-30: #c6c6c6;
+  --ibm-gray-20: #e0e0e0;
+  --ibm-gray-10: #f4f4f4;
+  --ibm-white: #ffffff;
+}
+
+body {
+  background-color: var(--ibm-white);
+  color: var(--ibm-black);
+  margin: 0;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ---------- Hero ---------- */
+/* Black backdrop matches the QC@IITI logo; the Bloch sphere is the
+   only visual element drawn on top of it. */
+.ibm-hero {
+  position: relative;
+  width: 100%;
+  min-height: 150vh;
+  overflow-x: hidden;
+  background: var(--ibm-black);
+}
+
+.hero-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: var(--ibm-black);
+}
+
+.ibm-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ibm-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ibm-blue);
+  margin: 0 0 1rem;
+}
+
+/* On the dark hero backdrop, swap to a light gray for contrast. */
+.ibm-hero .ibm-eyebrow {
+  color: var(--ibm-gray-30);
+}
+
+.ibm-hero .ibm-headline {
+  color: var(--ibm-white);
+}
+
+.ibm-headline {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ibm-black);
+  margin: 0 0 1.5rem;
+  min-height: 1.1em;
+}
+
+.ibm-hero .ibm-subhead {
+  color: var(--ibm-gray-30);
+}
+
+.ibm-subhead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ibm-gray-70);
+  max-width: 34rem;
+  margin: 0 0 2.5rem;
+}
+
+.ibm-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ibm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.95rem 1.5rem;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, gap 0.15s ease;
+}
+
+.ibm-btn-primary {
+  background-color: var(--ibm-blue);
+  color: var(--ibm-white);
+}
+.ibm-btn-primary:hover {
+  background-color: var(--ibm-blue-hover);
+  gap: 0.9rem;
+}
+
+.ibm-btn-secondary {
+  background-color: transparent;
+  color: var(--ibm-black);
+  border: 1px solid var(--ibm-black);
+}
+.ibm-btn-secondary:hover {
+  background-color: var(--ibm-black);
+  color: var(--ibm-white);
+}
+
+/* On the dark hero, the secondary button needs a light outline instead. */
+.ibm-hero .ibm-btn-secondary {
+  color: var(--ibm-white);
+  border-color: var(--ibm-white);
+}
+.ibm-hero .ibm-btn-secondary:hover {
+  background-color: var(--ibm-white);
+  color: var(--ibm-black);
+}
+
+.ibm-arrow {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+/* ---------- Generic sections ---------- */
+.ibm-section {
+  position: relative;
+  z-index: 1;
+  background: var(--ibm-white);
+  padding: 5rem 2rem;
+}
+
+.ibm-section-gray {
+  background: var(--ibm-gray-10);
+}
+
+.ibm-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ibm-about-grid {
+  max-width: 900px;
+}
+
+.ibm-h2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ibm-black);
+  margin: 0 0 1.5rem;
+  max-width: 40rem;
+}
+
+.ibm-body-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ibm-gray-70);
+  max-width: 46rem;
+}
+
+/* ---------- Tiles ---------- */
+.ibm-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background-color: var(--ibm-gray-20);
+  border: 1px solid var(--ibm-gray-20);
+  margin-top: 1rem;
+}
+
+.ibm-tile {
+  position: relative;
+  background: var(--ibm-white);
+  color: var(--ibm-black);
+  text-decoration: none;
+  padding: 2rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  transition: background-color 0.15s ease;
+}
+
+.ibm-tile:hover {
+  background-color: var(--ibm-gray-10);
+}
+
+.ibm-tile-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.ibm-tile-desc {
+  font-size: 0.95rem;
+  color: var(--ibm-gray-70);
+}
+
+.ibm-tile-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--ibm-blue);
+  transition: transform 0.15s ease;
+}
+
+.ibm-tile:hover .ibm-tile-arrow {
+  transform: translateX(4px);
+}
