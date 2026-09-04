@@ -140,7 +140,12 @@ const QuantumField: React.FC = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="hero-canvas" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed left-0 top-0 z-0 h-full w-full bg-ibm-black"
+    />
+  );
 };
 
 const Typewriter: React.FC<{ text: string; speed?: number }> = ({ text, speed = 90 }) => {
@@ -160,36 +165,46 @@ const Typewriter: React.FC<{ text: string; speed?: number }> = ({ text, speed = 
 export default function HeroSection() {
   return (
     <>
-      <div className="ibm-hero">
+      <div className="relative min-h-[150vh] w-full overflow-x-hidden bg-ibm-black">
         <QuantumField />
 
-        <div className="ibm-hero-content">
-          <p className="ibm-eyebrow">IIT Indore &middot; Student Chapter</p>
-          <h1 className="ibm-headline">
+        <div className="relative z-[1] mx-auto flex min-h-[90vh] max-w-[640px] flex-col justify-center px-8 py-12">
+          <p className="mb-4 font-plexMono text-[0.8rem] font-medium uppercase tracking-[0.08em] text-ibm-gray-30">
+            IIT Indore &middot; Student Chapter
+          </p>
+          <h1 className="mb-6 min-h-[1.1em] font-plexSans text-[clamp(2.25rem,5.5vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-white">
             <Typewriter text="Quantum Computing Club" speed={70} />
           </h1>
-          <p className="ibm-subhead">
+          <p className="mb-10 max-w-[34rem] text-[1.15rem] leading-[1.6] text-ibm-gray-30">
             We are a student-led community advancing quantum computation and information
             theory &mdash; bridging fundamental principles and real-world applications.
           </p>
-          <div className="ibm-cta-row">
-            <Link href="/projects" className="ibm-btn ibm-btn-primary">
-              Explore projects <span className="ibm-arrow">&rarr;</span>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-[0.6rem] rounded-none bg-ibm-blue px-6 py-[0.95rem] font-plexSans text-base font-medium text-white no-underline transition-[background-color,color,gap] duration-150 ease-in-out hover:gap-[0.9rem] hover:bg-ibm-blue-hover"
+            >
+              Explore projects <span className="inline-block transition-transform duration-150 ease-in-out">&rarr;</span>
             </Link>
-            <Link href="/team" className="ibm-btn ibm-btn-secondary">
+            <Link
+              href="/team"
+              className="inline-flex items-center gap-[0.6rem] rounded-none border border-white bg-transparent px-6 py-[0.95rem] font-plexSans text-base font-medium text-white no-underline transition-[background-color,color] duration-150 ease-in-out hover:bg-white hover:text-ibm-black"
+            >
               Meet the team
             </Link>
           </div>
         </div>
       </div>
 
-      <section className="ibm-section" id="about">
-        <div className="ibm-container ibm-about-grid">
-          <p className="ibm-eyebrow">About us</p>
-          <h2 className="ibm-h2">
+      <section className="relative z-[1] bg-white px-8 py-20" id="about">
+        <div className="mx-auto max-w-[900px]">
+          <p className="mb-4 font-plexMono text-[0.8rem] font-medium uppercase tracking-[0.08em] text-ibm-blue">
+            About us
+          </p>
+          <h2 className="mb-6 max-w-[40rem] font-plexSans text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.01em] text-ibm-black">
             Bridging theory and real-world quantum applications
           </h2>
-          <p className="ibm-body-text">
+          <p className="max-w-[46rem] text-[1.1rem] leading-[1.7] text-ibm-gray-70">
             We are a student-led community advancing quantum computation and information
             theory, bridging the gap between fundamental principles and real-world
             applications. Our mission is to foster an inclusive and collaborative space
@@ -200,30 +215,46 @@ export default function HeroSection() {
         </div>
       </section>
 
-      <section className="ibm-section ibm-section-gray">
-        <div className="ibm-container">
-          <p className="ibm-eyebrow">Know more</p>
-          <h2 className="ibm-h2">Where to go next</h2>
-          <div className="ibm-tile-grid">
-            <Link href="/projects" className="ibm-tile">
-              <span className="ibm-tile-title">Projects</span>
-              <span className="ibm-tile-desc">See what our members have built</span>
-              <span className="ibm-tile-arrow">&rarr;</span>
+      <section className="relative z-[1] bg-ibm-gray-10 px-8 py-20">
+        <div className="mx-auto max-w-[1200px]">
+          <p className="mb-4 font-plexMono text-[0.8rem] font-medium uppercase tracking-[0.08em] text-ibm-blue">
+            Know more
+          </p>
+          <h2 className="mb-6 max-w-[40rem] font-plexSans text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.01em] text-ibm-black">
+            Where to go next
+          </h2>
+          <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-px border border-ibm-gray-20 bg-ibm-gray-20">
+            <Link
+              href="/projects"
+              className="group relative flex min-h-[200px] flex-col justify-end gap-2 bg-white p-8 text-ibm-black no-underline transition-colors duration-150 ease-in-out hover:bg-ibm-gray-10"
+            >
+              <span className="font-plexSans text-[1.3rem] font-semibold">Projects</span>
+              <span className="text-[0.95rem] text-ibm-gray-70">See what our members have built</span>
+              <span className="absolute right-6 top-6 text-[1.4rem] text-ibm-blue transition-transform duration-150 ease-in-out group-hover:translate-x-1">&rarr;</span>
             </Link>
-            <Link href="/team" className="ibm-tile">
-              <span className="ibm-tile-title">Our Team</span>
-              <span className="ibm-tile-desc">Meet the people behind the club</span>
-              <span className="ibm-tile-arrow">&rarr;</span>
+            <Link
+              href="/team"
+              className="group relative flex min-h-[200px] flex-col justify-end gap-2 bg-white p-8 text-ibm-black no-underline transition-colors duration-150 ease-in-out hover:bg-ibm-gray-10"
+            >
+              <span className="font-plexSans text-[1.3rem] font-semibold">Our Team</span>
+              <span className="text-[0.95rem] text-ibm-gray-70">Meet the people behind the club</span>
+              <span className="absolute right-6 top-6 text-[1.4rem] text-ibm-blue transition-transform duration-150 ease-in-out group-hover:translate-x-1">&rarr;</span>
             </Link>
-            <Link href="https://github.com/qc-iiti/Resources" className="ibm-tile">
-              <span className="ibm-tile-title">Resources</span>
-              <span className="ibm-tile-desc">Learning material, curated by us</span>
-              <span className="ibm-tile-arrow">&rarr;</span>
+            <Link
+              href="https://github.com/qc-iiti/Resources"
+              className="group relative flex min-h-[200px] flex-col justify-end gap-2 bg-white p-8 text-ibm-black no-underline transition-colors duration-150 ease-in-out hover:bg-ibm-gray-10"
+            >
+              <span className="font-plexSans text-[1.3rem] font-semibold">Resources</span>
+              <span className="text-[0.95rem] text-ibm-gray-70">Learning material, curated by us</span>
+              <span className="absolute right-6 top-6 text-[1.4rem] text-ibm-blue transition-transform duration-150 ease-in-out group-hover:translate-x-1">&rarr;</span>
             </Link>
-            <Link href="/" className="ibm-tile">
-              <span className="ibm-tile-title">Events</span>
-              <span className="ibm-tile-desc">Workshops, talks, and meetups</span>
-              <span className="ibm-tile-arrow">&rarr;</span>
+            <Link
+              href="/"
+              className="group relative flex min-h-[200px] flex-col justify-end gap-2 bg-white p-8 text-ibm-black no-underline transition-colors duration-150 ease-in-out hover:bg-ibm-gray-10"
+            >
+              <span className="font-plexSans text-[1.3rem] font-semibold">Events</span>
+              <span className="text-[0.95rem] text-ibm-gray-70">Workshops, talks, and meetups</span>
+              <span className="absolute right-6 top-6 text-[1.4rem] text-ibm-blue transition-transform duration-150 ease-in-out group-hover:translate-x-1">&rarr;</span>
             </Link>
           </div>
         </div>

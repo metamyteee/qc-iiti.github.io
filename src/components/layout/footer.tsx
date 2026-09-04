@@ -1,69 +1,103 @@
 import React from "react";
 
+const footerLinkClass =
+  "text-inherit no-underline inline-block border-b-2 border-blueLight px-[2px] font-title transition-[border-bottom] duration-500 hover:border-blueDark";
+
 const Footer: React.FC = () => {
   return (
-    <div id="Footer">
-      <div className="footerSection">
-        <h4>© 2025 Quantum Computing Club, IIT Indore</h4>
-        <p>Made with ❤️ by the QC IITI Web Dev Team.</p>
-        <p>&nbsp;</p>
-        <p>
+    <div
+      id="Footer"
+      className="relative z-10 flex flex-row flex-wrap justify-evenly bg-footerBg p-[min(2.5vw,20px)] text-footerFg"
+    >
+      <div className="m-[min(2.5vw,20px)] flex-grow rounded-[10pt] bg-[#1d1d1d] p-[5vh_5vw]">
+        <h4 className="my-[1.33em] font-title text-base font-normal uppercase">
+          © 2025 Quantum Computing Club, IIT Indore
+        </h4>
+        <p className="my-[1em]">Made with ❤️ by the QC IITI Web Dev Team.</p>
+        <p className="my-[1em]">&nbsp;</p>
+        <p className="my-[1em]">
           See a bug? Raise an{" "}
           <a
             href="https://github.com/qc-iiti/qc-iiti.github.io/issues"
             target="_blank"
             rel="noopener noreferrer"
+            className={footerLinkClass}
           >
             Issue
           </a>
           !
         </p>
       </div>
-      <div className="footerSection">
-        <h4>Contact Us</h4>
-        <p>
-          <a href="mailto:quantum@iiti.ac.in">quantum@iiti.ac.in</a>
+      <div className="m-[min(2.5vw,20px)] flex-grow rounded-[10pt] bg-[#1d1d1d] p-[5vh_5vw]">
+        <h4 className="my-[1.33em] font-title text-base font-normal">Contact Us</h4>
+        <p className="my-[1em]">
+          <a href="mailto:quantum@iiti.ac.in" className={footerLinkClass}>
+            quantum@iiti.ac.in
+          </a>
         </p>
-        <h4>Follow Us</h4>
-        <p>
-          <a href="https://github.com/qc-iiti" target="_blank" rel="noopener noreferrer">
+        <h4 className="my-[1.33em] font-title text-base font-normal">Follow Us</h4>
+        <p className="my-[1em]">
+          <a
+            href="https://github.com/qc-iiti"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={footerLinkClass}
+          >
             GitHub
           </a>
         </p>
-        <p>
+        <p className="my-[1em]">
           <a
             href="https://linkedin.com/company/quantumcomputingclub"
             target="_blank"
             rel="noopener noreferrer"
+            className={footerLinkClass}
           >
             LinkedIn
           </a>
         </p>
-        <p>
+        <p className="my-[1em]">
           <a
             href="https://instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
+            className={footerLinkClass}
           >
             Instagram
           </a>
         </p>
       </div>
-      <div className="footerSection">
-        <h5>President</h5>
-        <p>Arham Aneeq</p>
-        <p>
-          <a href="tel:+919136607511">+91 91366 07511</a> /{" "}
-          <a href="mailto:mems240005009@iiti.ac.in">mems240005009@iiti.ac.in</a>
+      <div className="m-[min(2.5vw,20px)] flex-grow rounded-[10pt] bg-[#1d1d1d] p-[5vh_5vw]">
+        <h5 className="my-[1.67em] text-[0.83em] font-bold">President</h5>
+        <p className="my-[1em]">Arham Aneeq</p>
+        <p className="my-[1em]">
+          <a href="tel:+919136607511" className={footerLinkClass}>
+            +91 91366 07511
+          </a>{" "}
+          /{" "}
+          <a href="mailto:mems240005009@iiti.ac.in" className={footerLinkClass}>
+            mems240005009@iiti.ac.in
+          </a>
         </p>
 
-        <h5>Vice-Presidents</h5>
-        <p>
-          Aarush Bindod (<a href="tel:+919422747359">+91 94227 47359</a> /{" "}
-          <a href="mailto:ep240051001@iiti.ac.in">ep240051001@iiti.ac.in</a>)
+        <h5 className="my-[1.67em] text-[0.83em] font-bold">Vice-Presidents</h5>
+        <p className="my-[1em]">
+          Aarush Bindod (
+          <a href="tel:+919422747359" className={footerLinkClass}>
+            +91 94227 47359
+          </a>{" "}
+          /{" "}
+          <a href="mailto:ep240051001@iiti.ac.in" className={footerLinkClass}>
+            ep240051001@iiti.ac.in
+          </a>
+          )
         </p>
-        <p>
-          V Hemal (<a href="mailto:ep240051020@iiti.ac.in">ep240051020@iiti.ac.in</a>)
+        <p className="my-[1em]">
+          V Hemal (
+          <a href="mailto:ep240051020@iiti.ac.in" className={footerLinkClass}>
+            ep240051020@iiti.ac.in
+          </a>
+          )
         </p>
       </div>
     </div>

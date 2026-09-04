@@ -25,11 +25,25 @@ const Header: React.FC<HeaderProps> = () => {
 
   const isActive = (href: string) => router.pathname === href;
 
+  const navLinkClass = (active: boolean) =>
+    `relative font-semibold font-title text-[20px] no-underline text-inherit
+     after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px]
+     after:bg-current after:transition-[width] after:duration-300
+     hover:after:w-full
+     ${active ? 'after:w-full' : 'after:w-0'}`;
+
   return (
-    <header className="qc-header">
-      <Link href="/" className="qc-logo" aria-label="Quantum Computing Club, IIT Indore — home">
+    <header
+      className="relative z-10 flex items-center justify-between border-b border-black
+                 bg-white px-8 py-4 font-title transition-all duration-300 ease-in-out"
+    >
+      <Link
+        href="/"
+        className="flex items-center gap-4 text-inherit no-underline cursor-pointer"
+        aria-label="Quantum Computing Club, IIT Indore — home"
+      >
         <svg
-          className="my-icon"
+          className="h-16 w-16"
           viewBox="0 0 1044 1044"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -52,29 +66,68 @@ const Header: React.FC<HeaderProps> = () => {
           </g>
         </svg>
 
-        <div className="qc-logo-text">
-          <h1>QUANTUM COMPUTING @ IITI</h1>
+        <div>
+          <h1 className="m-0 text-[1.6rem] font-bold">QUANTUM COMPUTING @ IITI</h1>
         </div>
       </Link>
 
       <button
-        className={`qc-nav-toggle ${menuOpen ? 'is-open' : ''}`}
+        className="z-[60] hidden headernav:flex flex-col justify-center gap-[5px]
+                   h-9 w-9 border-0 bg-transparent p-0 cursor-pointer"
         aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen((open) => !open)}
       >
-        <span />
-        <span />
-        <span />
+        <span
+          className={`block h-[2px] w-full bg-current transition-transform duration-300 ease-in-out ${
+            menuOpen ? 'translate-y-[7px] rotate-45' : ''
+          }`}
+        />
+        <span
+          className={`block h-[2px] w-full bg-current transition-opacity duration-300 ease-in-out ${
+            menuOpen ? 'opacity-0' : ''
+          }`}
+        />
+        <span
+          className={`block h-[2px] w-full bg-current transition-transform duration-300 ease-in-out ${
+            menuOpen ? '-translate-y-[7px] -rotate-45' : ''
+          }`}
+        />
       </button>
 
-      <nav className={`qc-nav ${menuOpen ? 'is-open' : ''}`}>
-        <ul>
-          <li><Link href="/" className={isActive('/') ? 'is-active' : ''}>Home</Link></li>
-          <li><a href={aboutHref}>About</a></li>
-          <li><Link href="/projects" className={isActive('/projects') ? 'is-active' : ''}>Projects</Link></li>
-          <li><Link href="/team" className={isActive('/team') ? 'is-active' : ''}>Team</Link></li>
-          <li><a href={contactHref}>Contact</a></li>
+      <nav
+        className={`headernav:fixed headernav:top-0 headernav:h-screen headernav:w-[min(80vw,320px)]
+                     headernav:bg-white headernav:shadow-[-4px_0_20px_rgba(0,0,0,0.12)]
+                     headernav:transition-[right] headernav:duration-300 headernav:ease-in-out
+                     headernav:z-[55] headernav:px-8 headernav:pt-24 headernav:pb-8
+                     ${menuOpen ? 'headernav:right-0' : 'headernav:-right-full'}`}
+      >
+        <ul className="flex gap-8 list-none m-0 p-0 headernav:flex-col headernav:gap-7">
+          <li>
+            <Link href="/" className={navLinkClass(isActive('/'))}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <a href={aboutHref} className={navLinkClass(false)}>
+              About
+            </a>
+          </li>
+          <li>
+            <Link href="/projects" className={navLinkClass(isActive('/projects'))}>
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link href="/team" className={navLinkClass(isActive('/team'))}>
+              Team
+            </Link>
+          </li>
+          <li>
+            <a href={contactHref} className={navLinkClass(false)}>
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
