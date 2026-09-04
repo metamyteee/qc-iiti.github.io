@@ -1,140 +1,6 @@
 import React, { useEffect, useState, FC } from 'react';
 import Papa from 'papaparse';
 
-const TeamPageStyles = () => (
-  <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-    .pageContainer {
-      color: #161616;
-      font-family: 'IBM Plex Sans', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #ffffff;
-    }
-
-    .titleBanner {
-      width: 100%;
-      background-color: #f4f4f4;
-      color: #161616;
-      text-align: center;
-      padding: 5rem 1rem 4rem;
-      margin-bottom: 0;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .titleBanner h1 {
-      font-size: 2.75rem;
-      font-weight: 600;
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
-
-    .titleBanner p {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #0f62fe;
-      max-width: 600px;
-      margin: 0 auto 0.75rem;
-    }
-
-    .teamSection {
-      width: 100%;
-      max-width: 1200px;
-      padding: 3rem 1.5rem 5rem;
-    }
-
-    .teamGroup {
-      margin-bottom: 3rem;
-    }
-    .teamGroup:last-child {
-      margin-bottom: 0;
-    }
-
-    .teamGroupTitle {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #161616;
-      margin: 0 0 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 2px solid #0f62fe;
-    }
-
-    .memberGrid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1px;
-      background-color: #e0e0e0;
-      border: 1px solid #e0e0e0;
-      justify-items: stretch;
-    }
-
-    /* Member Card: flat, square-cornered IBM-style tile */
-    .memberCard {
-      width: 100%;
-      min-height: 180px;
-      padding: 1.75rem;
-      box-sizing: border-box;
-      background: #ffffff;
-      color: #161616;
-      border-radius: 0;
-      transition: background-color 0.15s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-    }
-
-    .memberCard:hover {
-      background-color: #f4f4f4;
-    }
-
-    .memberAvatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 0;
-      background: #0f62fe;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-
-    .memberInfo h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #161616;
-    }
-
-    .memberInfo p {
-      margin: 0.4rem 0 0;
-      font-size: 0.95rem;
-      color: #525252;
-      font-weight: 400;
-    }
-
-    @media (max-width: 768px) {
-      .titleBanner h1 {
-        font-size: 2rem;
-      }
-      .titleBanner {
-        padding: 3.5rem 1rem 3rem;
-      }
-    }
-  `}</style>
-);
-
 // --- INTERFACES ---
 interface Member {
   initials: string;
@@ -172,11 +38,13 @@ const groupRank = (name: string): number => {
 
 const MemberCard: FC<{ member: Member }> = ({ member }) => {
   return (
-    <div className="memberCard">
-      <div className="memberAvatar">{member.initials}</div>
-      <div className="memberInfo">
-        <h3>{member.name}</h3>
-        <p>{member.role}</p>
+    <div className="flex min-h-[180px] w-full flex-col items-start bg-white p-7 text-left text-ibm-black transition-colors duration-150 ease-in-out hover:bg-ibm-gray-10">
+      <div className="mb-6 flex h-14 w-14 items-center justify-center bg-ibm-blue font-plexMono text-[1.15rem] font-semibold text-white">
+        {member.initials}
+      </div>
+      <div>
+        <h3 className="m-0 text-[1.2rem] font-semibold text-ibm-black">{member.name}</h3>
+        <p className="mt-[0.4rem] text-[0.95rem] font-normal text-ibm-gray-70">{member.role}</p>
       </div>
     </div>
   );
@@ -244,31 +112,36 @@ const TeamPage: FC = () => {
   });
 
   return (
-    <>
-      <TeamPageStyles />
-      <div className="pageContainer">
-        <div className="titleBanner">
-          <p>Our team</p>
-          <h1>Club Leadership and Core Team</h1>
-        </div>
+    <div className="flex w-full flex-col items-center bg-white p-0 font-plexSans text-ibm-black">
+      <div className="w-full border-b border-ibm-gray-20 bg-ibm-gray-10 px-4 pb-12 pt-14 text-center md:pb-16 md:pt-20">
+        <p className="mx-auto mb-3 max-w-[600px] font-plexMono text-[0.85rem] uppercase tracking-[0.06em] text-ibm-blue">
+          Our team
+        </p>
+        <h1 className="m-0 text-[2rem] font-semibold tracking-[-0.01em] md:text-[2.75rem]">
+          Club Leadership and Core Team
+        </h1>
+      </div>
 
-        <section className="teamSection">
-          {loading && <p style={{ textAlign: 'center' }}>Loading team members...</p>}
-          {error && <p style={{ color: '#da1e28', fontWeight: 'bold', textAlign: 'center' }}>{error}</p>}
+      <section className="w-full max-w-[1200px] px-6 pb-20 pt-12">
+        {loading && <p className="text-center">Loading team members...</p>}
+        {error && <p className="text-center font-bold text-ibm-red">{error}</p>}
 
-          {!loading && !error && groupNames.map((groupName) => (
-            <div className="teamGroup" key={groupName}>
-              <h2 className="teamGroupTitle">{groupName}</h2>
-              <div className="memberGrid">
+        {!loading &&
+          !error &&
+          groupNames.map((groupName) => (
+            <div className="mb-12 last:mb-0" key={groupName}>
+              <h2 className="mb-5 border-b-2 border-ibm-blue pb-3 text-[1.4rem] font-semibold text-ibm-black">
+                {groupName}
+              </h2>
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] justify-items-stretch gap-px border border-ibm-gray-20 bg-ibm-gray-20">
                 {groupedTeam[groupName].map((member) => (
                   <MemberCard key={`${groupName}-${member.name}`} member={member} />
                 ))}
               </div>
             </div>
           ))}
-        </section>
-      </div>
-    </>
+      </section>
+    </div>
   );
 };
 
