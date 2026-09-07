@@ -125,7 +125,8 @@ const Header: React.FC<HeaderProps> = () => {
           </li>
           <li>
             <Link href="https://qc-iiti.github.io/Qiskit-Fall-Fest-2026/" className={navLinkClass(isActive('/team'))}>
-              Qiskit-Fall-Fest
+              Qiskit
+              Fall-Fest
             </Link>
           </li>
           <li>
