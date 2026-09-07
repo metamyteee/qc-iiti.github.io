@@ -249,7 +249,7 @@ export default function HeroSection() {
               <span className="absolute right-6 top-6 text-[1.4rem] text-ibm-blue transition-transform duration-150 ease-in-out group-hover:translate-x-1">&rarr;</span>
             </Link>
             <Link
-              href="/"
+              href="https://qc-iiti.github.io/Qiskit-Fall-Fest-2026/"
               className="group relative flex min-h-[200px] flex-col justify-end gap-2 bg-white p-8 text-ibm-black no-underline transition-colors duration-150 ease-in-out hover:bg-ibm-gray-10"
             >
               <span className="font-plexSans text-[1.3rem] font-semibold">Events</span>
