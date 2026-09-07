@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const footerLinkClass =
@@ -11,7 +12,7 @@ const Footer: React.FC = () => {
     >
       <div className="m-[min(2.5vw,20px)] flex-grow rounded-[10pt] bg-[#1d1d1d] p-[5vh_5vw]">
         <h4 className="my-[1.33em] font-title text-base font-normal uppercase">
-          © 2025 Quantum Computing Club, IIT Indore
+          © 2026 Quantum Computing Club, IIT Indore
         </h4>
         <p className="my-[1em]">Made with ❤️ by the QC IITI Web Dev Team.</p>
         <p className="my-[1em]">&nbsp;</p>
@@ -28,14 +29,22 @@ const Footer: React.FC = () => {
           !
         </p>
       </div>
+
       <div className="m-[min(2.5vw,20px)] flex-grow rounded-[10pt] bg-[#1d1d1d] p-[5vh_5vw]">
-        <h4 className="my-[1.33em] font-title text-base font-normal">Contact Us</h4>
+        <h4 className="my-[1.33em] font-title text-base font-normal">
+          Contact Us
+        </h4>
+
         <p className="my-[1em]">
           <a href="mailto:quantum@iiti.ac.in" className={footerLinkClass}>
             quantum@iiti.ac.in
           </a>
         </p>
-        <h4 className="my-[1.33em] font-title text-base font-normal">Follow Us</h4>
+
+        <h4 className="my-[1.33em] font-title text-base font-normal">
+          Follow Us
+        </h4>
+
         <p className="my-[1em]">
           <a
             href="https://github.com/qc-iiti"
@@ -46,6 +55,7 @@ const Footer: React.FC = () => {
             GitHub
           </a>
         </p>
+
         <p className="my-[1em]">
           <a
             href="https://linkedin.com/company/quantumcomputingclub"
@@ -56,6 +66,7 @@ const Footer: React.FC = () => {
             LinkedIn
           </a>
         </p>
+
         <p className="my-[1em]">
           <a
             href="https://instagram.com/"
@@ -66,38 +77,103 @@ const Footer: React.FC = () => {
             Instagram
           </a>
         </p>
+
+        <p className="my-[1em]">
+          <a
+            href="https://medium.com/me/following-feed/publications/8215bca10bec"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={footerLinkClass}
+          >
+            Medium
+          </a>
+        </p>
       </div>
+
       <div className="m-[min(2.5vw,20px)] flex-grow rounded-[10pt] bg-[#1d1d1d] p-[5vh_5vw]">
-        <h5 className="my-[1.67em] text-[0.83em] font-bold">President</h5>
+        <h5 className="my-[1.67em] text-[0.83em] font-bold">
+          President
+        </h5>
+        <p className="my-[1em]">V Hemal</p>
+        <p className="my-[1em]">
+          <a href="tel:+918870547675" className={footerLinkClass}>
+            +91 88705 47675
+          </a>{" "}
+          /{" "}
+          <a
+            href="mailto:ep240051020@iiti.ac.in"
+            className={footerLinkClass}
+          >
+            ep240051020@iiti.ac.in
+          </a>
+        </p>
+
+        <h5 className="my-[1.67em] text-[0.83em] font-bold">
+          Software Domain Head
+        </h5>
+        <p className="my-[1em]">Aarush Bindod</p>
+        <p className="my-[1em]">
+          <a href="tel:+919422747359" className={footerLinkClass}>
+            +91 94227 47359
+          </a>{" "}
+          /{" "}
+          <a
+            href="mailto:ep240051001@iiti.ac.in"
+            className={footerLinkClass}
+          >
+            ep240051001@iiti.ac.in
+          </a>
+        </p>
+
+        <h5 className="my-[1.67em] text-[0.83em] font-bold">
+          Hardware &amp; Devices Head
+        </h5>
         <p className="my-[1em]">Arham Aneeq</p>
         <p className="my-[1em]">
           <a href="tel:+919136607511" className={footerLinkClass}>
             +91 91366 07511
           </a>{" "}
           /{" "}
-          <a href="mailto:mems240005009@iiti.ac.in" className={footerLinkClass}>
+          <a
+            href="mailto:mems240005009@iiti.ac.in"
+            className={footerLinkClass}
+          >
             mems240005009@iiti.ac.in
           </a>
         </p>
 
-        <h5 className="my-[1.67em] text-[0.83em] font-bold">Vice-Presidents</h5>
+        <h5 className="my-[1.67em] text-[0.83em] font-bold">
+          Algorithm Head
+        </h5>
+        <p className="my-[1em]">Abhiroop Gohar</p>
         <p className="my-[1em]">
-          Aarush Bindod (
-          <a href="tel:+919422747359" className={footerLinkClass}>
-            +91 94227 47359
+          <a href="tel:+919140781550" className={footerLinkClass}>
+            +91 91407 81550
           </a>{" "}
           /{" "}
-          <a href="mailto:ep240051001@iiti.ac.in" className={footerLinkClass}>
-            ep240051001@iiti.ac.in
+          <a
+            href="mailto:ep240051002@iiti.ac.in"
+            className={footerLinkClass}
+          >
+            ep240051002@iiti.ac.in
           </a>
-          )
         </p>
+
+        <h5 className="my-[1.67em] text-[0.83em] font-bold">
+          Content Team Head
+        </h5>
+        <p className="my-[1em]">Samvaadi Dadhi</p>
         <p className="my-[1em]">
-          V Hemal (
-          <a href="mailto:ep240051020@iiti.ac.in" className={footerLinkClass}>
-            ep240051020@iiti.ac.in
+          <a href="tel:+917822009400" className={footerLinkClass}>
+            +91 78220 09400
+          </a>{" "}
+          /{" "}
+          <a
+            href="mailto:ep240051019@iiti.ac.in"
+            className={footerLinkClass}
+          >
+            ep240051019@iiti.ac.in
           </a>
-          )
         </p>
       </div>
     </div>
@@ -105,3 +181,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
